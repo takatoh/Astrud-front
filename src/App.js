@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Tree from './Tree.js';
-import Paper from './Paper.js';
+import Tree from './Tree';
+import Paper from './Paper';
 
 
 class App extends React.Component {
@@ -9,7 +9,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       endpoint: "http://localhost:8008",
-      name: "Charlie",
       tree: {name: "", path: "", children: []},
       photos: []
     };
@@ -18,13 +17,7 @@ class App extends React.Component {
   componentDidMount() {
     fetch(`${this.state.endpoint}/tree`)
       .then(response => response.json())
-      .then(
-        result => {
-          this.setState({
-            tree: result
-          });
-        }
-      );
+      .then(result => this.setState({tree: result}));
   }
 
   render() {
@@ -36,8 +29,14 @@ class App extends React.Component {
           </p>
         </header>
         <main>
-          <Tree root={this.state.tree} callback={(path) => this.fetchPhotos(path)} />
-          <Paper photos={this.state.photos} endpoint={this.state.endpoint}/>
+          <Tree
+            root={this.state.tree}
+            callback={(path) => this.fetchPhotos(path)}
+          />
+          <Paper
+            photos={this.state.photos}
+            endpoint={this.state.endpoint}
+          />
         </main>
       </div>
     );
@@ -46,13 +45,7 @@ class App extends React.Component {
   fetchPhotos(path) {
     fetch(`${this.state.endpoint}/dir/${path}`)
       .then(response => response.json())
-      .then(
-        result => {
-          this.setState({
-            photos: result.photos
-          })
-        }
-      )
+      .then(result => this.setState({photos: result.photos}));
   }
 }
 
