@@ -9,6 +9,11 @@ function App() {
           Astrud
         </p>
       </header>
+      <main>
+        <p>
+          Photos here.
+        </p>
+      </main>
     </div>
   );
 }
