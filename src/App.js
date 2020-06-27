@@ -42,6 +42,18 @@ class App extends React.Component {
       </div>
     );
   }
+
+  fetchPhotos(path) {
+    fetch(`http://localhost:8008/dir/$(path)`)
+      .then(response => response.json())
+      .then(
+        result => {
+          this.setState({
+            photos: result.photos
+          })
+        }
+      )
+  }
 }
 
 
