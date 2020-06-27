@@ -1,6 +1,6 @@
 import React from 'react';
 import './Tree.css';
-import Node from './Node.js';
+import Node from './Node';
 
 
 class Tree extends React.Component {

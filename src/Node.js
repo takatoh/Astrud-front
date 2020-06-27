@@ -5,7 +5,7 @@ class Node extends React.Component {
   render() {
     return (
       <li key={this.props.name}>
-        <span onClick={() => { this.props.callback(this.props.path); }}>
+        <span onClick={() => this.props.callback(this.props.path)} >
           {this.props.name}
         </span>
         {this.renderChildren(this.props.children, this.props.callback)}
