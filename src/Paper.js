@@ -6,7 +6,7 @@ class Paper extends React.Component {
     if (this.props.photos.length > 0) {
       return (
         <div>
-          <p>{this.props.photos.length}</p>
+          <p>{this.renderPhotos(this.props.photos)}</p>
         </div>
       );
     } else {
@@ -16,6 +16,16 @@ class Paper extends React.Component {
         </div>
       )
     }
+  }
+
+  renderPhotos(photos) {
+    return (
+      photos.map(photo => (
+        <a href={`http://localhost:8008${photo.photo}`}>
+          <img src={`http://localhost:8008${photo.thumbnail}`} />
+        </a>
+      ))
+    );
   }
 }
 
