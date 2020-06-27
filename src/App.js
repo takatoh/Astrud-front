@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Tree from './Tree.js';
+import Paper from './Paper.js';
 
 
 const fetchTree = (endpoint) => {
@@ -41,6 +42,7 @@ class App extends React.Component {
         </header>
         <main>
           <Tree root={this.state.tree} />
+          <Paper photos={this.state.photos} />
         </main>
       </div>
     );
