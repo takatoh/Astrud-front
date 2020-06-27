@@ -13,6 +13,7 @@ class Tree extends React.Component {
           path={this.props.root.path}
           children={this.props.root.children}
           key={this.props.root.name}
+          callback={this.props.callback}
         />
       </ul>
       </div>
