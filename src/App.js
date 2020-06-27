@@ -1,14 +1,34 @@
 import React from 'react';
 import './App.css';
+import Tree from './Tree.js';
 
+
+const fetchTree = (endpoint) => {
+  return fetch(`$(endpoint)/tree`)
+    .then(response => response.json());
+}
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      endpoint: "http://localhost:8080",
+      endpoint: "http://localhost:8008",
+      name: "Charlie",
+      tree: {name: "", path: "", children: []},
       photos: []
     };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:8008/tree")
+      .then(response => response.json())
+      .then(
+        result => {
+          this.setState({
+            tree: result
+          });
+        }
+      );
   }
 
   render() {
@@ -20,13 +40,12 @@ class App extends React.Component {
           </p>
         </header>
         <main>
-          <p>
-            Photos here.
-          </p>
+          <Tree root={this.state.tree} />
         </main>
       </div>
     );
   }
 }
+
 
 export default App;
