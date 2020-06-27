@@ -21,7 +21,7 @@ class Paper extends React.Component {
   renderPhotos(photos) {
     return (
       photos.map(photo => (
-        <a href={`http://localhost:8008${photo.photo}`}>
+        <a href={`http://localhost:8008${photo.photo}`} key={photo.filename}>
           <img src={`http://localhost:8008${photo.thumbnail}`} />
         </a>
       ))
