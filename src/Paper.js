@@ -6,7 +6,7 @@ class Paper extends React.Component {
     if (this.props.photos.length > 0) {
       return (
         <div>
-          <p>{this.photos.length}</p>
+          <p>{this.props.photos.length}</p>
         </div>
       );
     } else {
