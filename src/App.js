@@ -37,7 +37,7 @@ class App extends React.Component {
         </header>
         <main>
           <Tree root={this.state.tree} callback={(path) => this.fetchPhotos(path)} />
-          <Paper photos={this.state.photos} />
+          <Paper photos={this.state.photos} endpoint={this.state.endpoint}/>
         </main>
       </div>
     );

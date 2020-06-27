@@ -6,7 +6,7 @@ class Paper extends React.Component {
     if (this.props.photos.length > 0) {
       return (
         <div>
-          <p>{this.renderPhotos(this.props.photos)}</p>
+          <p>{this.renderPhotos(this.props.photos, this.props.endpoint)}</p>
         </div>
       );
     } else {
@@ -18,11 +18,11 @@ class Paper extends React.Component {
     }
   }
 
-  renderPhotos(photos) {
+  renderPhotos(photos, endpoint) {
     return (
       photos.map(photo => (
-        <a href={`http://localhost:8008${photo.photo}`} key={photo.filename}>
-          <img src={`http://localhost:8008${photo.thumbnail}`} />
+        <a href={`${endpoint}${photo.photo}`} key={photo.filename}>
+          <img src={`${endpoint}${photo.thumbnail}`} />
         </a>
       ))
     );
