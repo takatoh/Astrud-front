@@ -4,11 +4,6 @@ import Tree from './Tree.js';
 import Paper from './Paper.js';
 
 
-const fetchTree = (endpoint) => {
-  return fetch(`$(endpoint)/tree`)
-    .then(response => response.json());
-}
-
 class App extends React.Component {
   constructor(props) {
     super(props);
