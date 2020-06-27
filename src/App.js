@@ -14,12 +14,6 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount() {
-    fetch(`${this.state.endpoint}/tree`)
-      .then(response => response.json())
-      .then(result => this.setState({tree: result}));
-  }
-
   render() {
     return (
       <div className="App">
@@ -40,6 +34,12 @@ class App extends React.Component {
         </main>
       </div>
     );
+  }
+
+  componentDidMount() {
+    fetch(`${this.state.endpoint}/tree`)
+      .then(response => response.json())
+      .then(result => this.setState({tree: result}));
   }
 
   fetchPhotos(path) {
