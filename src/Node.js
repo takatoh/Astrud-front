@@ -15,12 +15,12 @@ class Node extends React.Component {
     if (children.length > 0) {
       return (
         <ul>
-          {children.map(n => (
+          {children.map(c => (
             <Node
-              name={n.name}
-              path={n.path}
-              children={n.children}
-              key={n.path}
+              name={c.name}
+              path={c.path}
+              children={c.children}
+              key={c.name}
             />
           ))}
         </ul>
