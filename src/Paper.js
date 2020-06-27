@@ -26,6 +26,7 @@ class Paper extends React.Component {
           photo={`${endpoint}/${photo.photo}`}
           thumbnail={`${endpoint}/${photo.thumbnail}`}
           filename={photo.filename}
+          key={photo.filename}
         />
       ))
     );
