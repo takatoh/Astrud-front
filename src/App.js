@@ -36,7 +36,7 @@ class App extends React.Component {
           </p>
         </header>
         <main>
-          <Tree root={this.state.tree} />
+          <Tree root={this.state.tree} callback={(path) => this.fetchPhotos(path)} />
           <Paper photos={this.state.photos} />
         </main>
       </div>
@@ -44,7 +44,7 @@ class App extends React.Component {
   }
 
   fetchPhotos(path) {
-    fetch(`http://localhost:8008/dir/$(path)`)
+    fetch(`http://localhost:8008/dir/${path}`)
       .then(response => response.json())
       .then(
         result => {
