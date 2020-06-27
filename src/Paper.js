@@ -21,8 +21,8 @@ class Paper extends React.Component {
   renderPhotos(photos, endpoint) {
     return (
       photos.map(photo => (
-        <a href={`${endpoint}${photo.photo}`} key={photo.filename} >
-          <img src={`${endpoint}${photo.thumbnail}`} alt={photo.filename} />
+        <a href={`${endpoint}/${photo.photo}`} target="_blank" key={photo.filename} >
+          <img src={`${endpoint}/${photo.thumbnail}`} alt={photo.filename} />
         </a>
       ))
     );
