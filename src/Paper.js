@@ -1,4 +1,5 @@
 import React from 'react';
+import Photo from './Photo';
 
 
 class Paper extends React.Component {
@@ -21,9 +22,11 @@ class Paper extends React.Component {
   renderPhotos(photos, endpoint) {
     return (
       photos.map(photo => (
-        <a href={`${endpoint}/${photo.photo}`} target="_blank" key={photo.filename} >
-          <img src={`${endpoint}/${photo.thumbnail}`} alt={photo.filename} />
-        </a>
+        <Photo
+          photo={`${endpoint}/${photo.photo}`}
+          thumbnail={`${endpoint}/${photo.thumbnail}`}
+          filename={photo.filename}
+        />
       ))
     );
   }
