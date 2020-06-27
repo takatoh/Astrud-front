@@ -5,13 +5,15 @@ class Node extends React.Component {
   render() {
     return (
       <li key={this.props.name}>
-        {this.props.name}
-        {this.renderChildren(this.props.children)}
+        <span onClick={() => { this.props.callback(this.props.path); }}>
+          {this.props.name}
+        </span>
+        {this.renderChildren(this.props.children, this.props.callback)}
       </li>
     );
   }
 
-  renderChildren(children) {
+  renderChildren(children, callback) {
     if (children.length > 0) {
       return (
         <ul>
@@ -21,6 +23,7 @@ class Node extends React.Component {
               path={c.path}
               children={c.children}
               key={c.name}
+              callback={callback}
             />
           ))}
         </ul>
