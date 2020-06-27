@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:8008/tree")
+    fetch(`${this.state.endpoint}/tree`)
       .then(response => response.json())
       .then(
         result => {
@@ -44,7 +44,7 @@ class App extends React.Component {
   }
 
   fetchPhotos(path) {
-    fetch(`http://localhost:8008/dir/${path}`)
+    fetch(`${this.state.endpoint}/dir/${path}`)
       .then(response => response.json())
       .then(
         result => {
