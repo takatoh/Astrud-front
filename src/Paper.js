@@ -1,6 +1,7 @@
 import React from 'react';
 import './Paper.css';
 import Photo from './Photo';
+import { Container } from '@material-ui/core';
 
 
 export default function Paper(props) {
@@ -20,7 +21,9 @@ export default function Paper(props) {
   if (props.photos.length > 0) {
     return (
       <div className="Paper">
-        {renderPhotos(props.photos, props.endpoint)}
+        <Container maxWidth="lg">
+          {renderPhotos(props.photos, props.endpoint)}
+        </Container>
       </div>
     );
   } else {
