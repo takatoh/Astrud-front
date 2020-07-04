@@ -12,37 +12,27 @@ export default function Tree(props) {
     },
   };
 
-  const [state, setState] = React.useState({
-    left: true,
-  });
-
-  const toggleDrawer = (open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-    setState({ ...state, ["left"]: open });
-  };
-
-    return (
-      <Drawer
-        anchor="left"
-        open={state["left"]}
-        onClose={toggleDrawer(false)}
+  return (
+    <Drawer
+      anchor="left"
+      open={props.open}
+      onClose={(event) => props.closeTree()}
+    >
+      <div
+        className={clsx(classes.list, {})}
+        role="presentation"
+        onClick={(event) => props.closeTree()}
       >
-        <div
-          className={clsx(classes.list, {})}
-          role="presentation"
-        >
-          <ul className="Tree-ul">
-            <Node
-              name={props.root.name}
-              path={props.root.path}
-              children={props.root.children}
-              key={props.root.name}
-              callback={props.callback}
-            />
-          </ul>
-        </div>
-      </Drawer>
-    );
+        <ul className="Tree-ul">
+          <Node
+            name={props.root.name}
+            path={props.root.path}
+            children={props.root.children}
+            key={props.root.name}
+            callback={props.callback}
+          />
+        </ul>
+      </div>
+    </Drawer>
+  );
 }

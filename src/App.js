@@ -28,6 +28,7 @@ class App extends React.Component {
       tree: {name: "", path: "", children: []},
       photos: [],
       classes: makeStyles(),
+      treeOpen: false,
     };
   }
 
@@ -36,7 +37,13 @@ class App extends React.Component {
       <div className="App">
         <AppBar position="static">
           <Toolbar>
-            <IconButton edge="start" className={this.state.classes.nemuButton} color="inherit" aria-label="menu">
+            <IconButton
+              edge="start"
+              className={this.state.classes.nemuButton}
+              color="inherit"
+              aria-label="menu"
+              onClick={() => this.setState({treeOpen: true})}
+            >
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" className={this.state.classes.title}>
@@ -48,6 +55,8 @@ class App extends React.Component {
           <Tree
             root={this.state.tree}
             callback={(path) => this.fetchPhotos(path)}
+            open={this.state.treeOpen}
+            closeTree={() => this.setState({treeOpen: false})}
           />
           <Paper
             photos={this.state.photos}
