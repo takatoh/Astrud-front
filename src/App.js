@@ -7,19 +7,6 @@ import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-}));
-
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -27,7 +14,7 @@ class App extends React.Component {
       endpoint: "http://localhost:8008",
       tree: {name: "", path: "", children: []},
       photos: [],
-      classes: makeStyles(),
+      classes: this.useStyles(),
       treeOpen: false,
     };
   }
@@ -77,6 +64,22 @@ class App extends React.Component {
     fetch(`${this.state.endpoint}/dir/${path}`)
       .then(response => response.json())
       .then(result => this.setState({photos: result.photos}));
+  }
+
+  useStyles(theme) {
+    return (
+      makeStyles((theme) => ({
+        root: {
+          flexGrow: 1,
+        },
+        menuButton: {
+          marginRight: theme.spacing(2),
+        },
+        title: {
+          flexGrow: 1,
+        },
+      }))
+    );
   }
 }
 
