@@ -1,4 +1,5 @@
 import React from 'react';
+import './Paper.css';
 import Photo from './Photo';
 
 
@@ -6,13 +7,13 @@ class Paper extends React.Component {
   render() {
     if (this.props.photos.length > 0) {
       return (
-        <div>
-          <p>{this.renderPhotos(this.props.photos, this.props.endpoint)}</p>
+        <div className="Paper">
+          {this.renderPhotos(this.props.photos, this.props.endpoint)}
         </div>
       );
     } else {
       return (
-        <div>
+        <div className="Paper Paper-empty">
           <p>No photos</p>
         </div>
       )

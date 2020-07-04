@@ -1,4 +1,12 @@
-.App-tree {
+.Tree {
+  margin: 0;
+  padding: 0;
+  position: absolute;
   width: 25%;
-  border-right: solid 1px #000000;
+  height: 90vh;
+  border-right: solid 1px #999999;
+}
+
+.Tree-ul {
+  text-align: left;
 }

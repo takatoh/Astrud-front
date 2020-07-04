@@ -6,8 +6,8 @@ import Node from './Node';
 class Tree extends React.Component {
   render() {
     return (
-      <div className="App-tree">
-      <ul>
+      <div className="Tree">
+      <ul className="Tree-ul">
         <Node
           name={this.props.root.name}
           path={this.props.root.path}
