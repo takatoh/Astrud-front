@@ -1,14 +1,15 @@
+.Photo-box {
+  float: left;
+  text-align: center;
+}
+
 figure {
   height: 200px;
-  width:  200px;
-  padding: auto;
-  float: left;
-  margin: 10px;
-  border: solid 1px black;
-  text-align: center;
+  width: 200px;
+  display: table-cell;
   vertical-align: middle;
 }
 
 img {
-
+  border: solid 1px #dddddd;
 }
