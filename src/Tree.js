@@ -1,25 +1,48 @@
 import React from 'react';
 import './Tree.css';
 import Node from './Node';
+import clsx from 'clsx';
+import { Drawer } from '@material-ui/core';
 
 
-class Tree extends React.Component {
-  render() {
+export default function Tree(props) {
+  const classes = {
+    list: {
+      width: 250,
+    },
+  };
+
+  const [state, setState] = React.useState({
+    left: true,
+  });
+
+  const toggleDrawer = (open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setState({ ...state, ["left"]: open });
+  };
+
     return (
-      <div className="Tree">
-      <ul className="Tree-ul">
-        <Node
-          name={this.props.root.name}
-          path={this.props.root.path}
-          children={this.props.root.children}
-          key={this.props.root.name}
-          callback={this.props.callback}
-        />
-      </ul>
-      </div>
+      <Drawer
+        anchor="left"
+        open={state["left"]}
+        onClose={toggleDrawer(false)}
+      >
+        <div
+          className={clsx(classes.list, {})}
+          role="presentation"
+        >
+          <ul className="Tree-ul">
+            <Node
+              name={props.root.name}
+              path={props.root.path}
+              children={props.root.children}
+              key={props.root.name}
+              callback={props.callback}
+            />
+          </ul>
+        </div>
+      </Drawer>
     );
-  }
 }
-
-
-export default Tree;
