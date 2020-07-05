@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      endpoint: "http://localhost:8008",
+      endpoint: process.env.REACT_APP_API_ENDPOINT,
       tree: {name: "", path: "", children: []},
       photos: [],
       treeOpen: false,
