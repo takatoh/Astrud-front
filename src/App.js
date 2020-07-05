@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Header from './Header';
 import Tree from './Tree';
 import Paper from './Paper';
@@ -20,18 +19,16 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header callback={(v) => this.setState({treeOpen: true})} />
-        <main>
-          <Tree
-            root={this.state.tree}
-            callback={(path) => this.fetchPhotos(path)}
-            open={this.state.treeOpen}
-            closeTree={() => this.setState({treeOpen: false})}
-          />
-          <Paper
-            photos={this.state.photos}
-            endpoint={this.state.endpoint}
-          />
-        </main>
+        <Tree
+          root={this.state.tree}
+          callback={(path) => this.fetchPhotos(path)}
+          open={this.state.treeOpen}
+          closeTree={() => this.setState({treeOpen: false})}
+        />
+        <Paper
+          photos={this.state.photos}
+          endpoint={this.state.endpoint}
+        />
       </div>
     );
   }
