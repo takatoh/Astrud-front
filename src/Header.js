@@ -37,7 +37,7 @@ export default function Header(props) {
           <MenuIcon />
         </IconButton>
         <Typography variant="h5" className={classes.title}>
-          Astrud
+          {props.title}
         </Typography>
       </Toolbar>
     </AppBar>

@@ -18,7 +18,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header callback={(v) => this.setState({treeOpen: true})} />
+        <Header
+          title={process.env.REACT_APP_SITE_TITLE}
+          callback={(v) => this.setState({treeOpen: true})}
+        />
         <Tree
           root={this.state.tree}
           callback={(path) => this.fetchPhotos(path)}
