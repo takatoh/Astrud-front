@@ -4,20 +4,20 @@ import Photo from './Photo';
 import { Container } from '@material-ui/core';
 
 
-export default function Paper(props) {
-  const renderPhotos = (photos, endpoint) => {
-    return (
-      photos.map(photo => (
-        <Photo
-          photo={`${endpoint}/${photo.photo}`}
-          thumbnail={`${endpoint}/${photo.thumbnail}`}
-          filename={photo.filename}
-          key={photo.filename}
-        />
-      ))
-    );
-  }
+const renderPhotos = (photos, endpoint) => {
+  return (
+    photos.map(photo => (
+      <Photo
+        photo={`${endpoint}/${photo.photo}`}
+        thumbnail={`${endpoint}/${photo.thumbnail}`}
+        filename={photo.filename}
+        key={photo.filename}
+      />
+    ))
+  );
+}
 
+export default function Paper(props) {
   if (props.photos.length > 0) {
     return (
       <div className="Paper">
