@@ -1,10 +1,8 @@
 import React from 'react';
 import './App.css';
+import Header from './Header';
 import Tree from './Tree';
 import Paper from './Paper';
-import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
 
 
 class App extends React.Component {
@@ -14,7 +12,6 @@ class App extends React.Component {
       endpoint: "http://localhost:8008",
       tree: {name: "", path: "", children: []},
       photos: [],
-      classes: this.useStyles(),
       treeOpen: false,
     };
   }
@@ -22,22 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              edge="start"
-              className={this.state.classes.nemuButton}
-              color="inherit"
-              aria-label="menu"
-              onClick={() => this.setState({treeOpen: true})}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h5" className={this.state.classes.title}>
-              Astrud
-            </Typography>
-          </Toolbar>
-        </AppBar>
+        <Header callback={(v) => this.setState({treeOpen: true})} />
         <main>
           <Tree
             root={this.state.tree}
@@ -64,22 +46,6 @@ class App extends React.Component {
     fetch(`${this.state.endpoint}/dir/${path}`)
       .then(response => response.json())
       .then(result => this.setState({photos: result.photos}));
-  }
-
-  useStyles(theme) {
-    return (
-      makeStyles((theme) => ({
-        root: {
-          flexGrow: 1,
-        },
-        menuButton: {
-          marginRight: theme.spacing(2),
-        },
-        title: {
-          flexGrow: 1,
-        },
-      }))
-    );
   }
 }
 
