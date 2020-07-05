@@ -33,7 +33,7 @@ class App extends React.Component {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" className={this.state.classes.title}>
+            <Typography variant="h5" className={this.state.classes.title}>
               Astrud
             </Typography>
           </Toolbar>
