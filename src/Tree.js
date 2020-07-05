@@ -1,5 +1,4 @@
 import React from 'react';
-import './Tree.css';
 import Node from './Node';
 import { Drawer, Divider, Typography } from '@material-ui/core';
 import FolderOpenIcon from '@material-ui/icons/FolderOpen';
