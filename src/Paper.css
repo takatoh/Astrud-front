@@ -1,9 +1,5 @@
 .Paper {
-  position: absolute;
-  width: 75%;
-  margin-left: 25%;
-  border-left: solit 1px #000000;
-  background-color: LightGreen;
+  margin-top: 10px;
 }
 
 .Paper-empty p {

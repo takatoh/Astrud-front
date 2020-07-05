@@ -1,26 +1,11 @@
 import React from 'react';
 import './Paper.css';
 import Photo from './Photo';
+import { Container } from '@material-ui/core';
 
 
-class Paper extends React.Component {
-  render() {
-    if (this.props.photos.length > 0) {
-      return (
-        <div className="Paper">
-          {this.renderPhotos(this.props.photos, this.props.endpoint)}
-        </div>
-      );
-    } else {
-      return (
-        <div className="Paper Paper-empty">
-          <p>No photos</p>
-        </div>
-      )
-    }
-  }
-
-  renderPhotos(photos, endpoint) {
+export default function Paper(props) {
+  const renderPhotos = (photos, endpoint) => {
     return (
       photos.map(photo => (
         <Photo
@@ -32,7 +17,20 @@ class Paper extends React.Component {
       ))
     );
   }
+
+  if (props.photos.length > 0) {
+    return (
+      <div className="Paper">
+        <Container maxWidth="lg">
+          {renderPhotos(props.photos, props.endpoint)}
+        </Container>
+      </div>
+    );
+  } else {
+    return (
+      <div className="Paper Paper-empty">
+        <p>No photos</p>
+      </div>
+    )
+  }
 }
-
-
-export default Paper;
