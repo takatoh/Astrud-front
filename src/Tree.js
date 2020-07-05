@@ -1,7 +1,8 @@
 import React from 'react';
 import './Tree.css';
 import Node from './Node';
-import { Drawer } from '@material-ui/core';
+import { Drawer, Divider, Typography } from '@material-ui/core';
+import FolderOpenIcon from '@material-ui/icons/FolderOpen';
 import { TreeView } from '@material-ui/lab';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -13,6 +14,11 @@ const useStyles = makeStyles({
     height: 240,
     flexGrow: 1,
     maxWidth: 400,
+  },
+  header: {
+    height: 40,
+    display: 'flex',
+    alignItems: 'center',
   },
   list: {
     width: 250,
@@ -41,6 +47,11 @@ export default function Tree(props) {
         role="presentation"
         onClick={(event) => props.closeTree()}
       >
+        <div className={classes.header}>
+          <FolderOpenIcon />
+          <Typography>Folders</Typography>
+        </div>
+        <Divider />
         <TreeView
           className={classes.root}
           defaultCollapseIcon={<ExpandMoreIcon />}
