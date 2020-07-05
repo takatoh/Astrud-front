@@ -52,7 +52,6 @@ export default function Tree(props) {
             name={props.root.name}
             path={props.root.path}
             children={props.root.children}
-            callback={props.callback}
           />
         </TreeView>
       </div>

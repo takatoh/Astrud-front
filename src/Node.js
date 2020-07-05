@@ -2,7 +2,7 @@ import React from 'react';
 import { TreeItem } from '@material-ui/lab';
 
 
-const renderChildren = (children, callback) => {
+const renderChildren = (children) => {
   if (children.length > 0) {
     return (
         children.map(c => (
@@ -10,7 +10,6 @@ const renderChildren = (children, callback) => {
             name={c.name}
             path={c.path}
             children={c.children}
-            callback={callback}
           />
         ))
     );
@@ -25,7 +24,7 @@ export default function Node(props) {
       nodeId={props.path}
       label={props.name}
     >
-      {renderChildren(props.children, props.callback)}
+      {renderChildren(props.children)}
     </TreeItem>
   );
 }
