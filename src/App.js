@@ -20,11 +20,11 @@ class App extends React.Component {
       <div className="App">
         <Header
           title={process.env.REACT_APP_SITE_TITLE}
-          callback={(v) => this.setState({treeOpen: true})}
+          openTree={() => this.setState({treeOpen: true})}
         />
         <Tree
           root={this.state.tree}
-          callback={(path) => this.fetchPhotos(path)}
+          openFolder={(path) => this.fetchPhotos(path)}
           open={this.state.treeOpen}
           closeTree={() => this.setState({treeOpen: false})}
         />

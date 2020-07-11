@@ -32,7 +32,7 @@ export default function Header(props) {
           className={classes.nemuButton}
           color="inherit"
           aria-label="menu"
-          onClick={props.callback}
+          onClick={props.openTree}
         >
           <MenuIcon />
         </IconButton>

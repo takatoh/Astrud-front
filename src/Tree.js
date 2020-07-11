@@ -56,7 +56,7 @@ export default function Tree(props) {
           defaultCollapseIcon={<ExpandMoreIcon />}
           defaultExpandIcon={<ChevronRightIcon />}
           expanded={listNodeIds(props.root)}
-          onNodeSelect={(e, v) => props.callback(v)}
+          onNodeSelect={(e, v) => props.openFolder(v)}
         >
           <Node
             name={props.root.name}
