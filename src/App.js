@@ -10,6 +10,7 @@ class App extends React.Component {
     this.state = {
       endpoint: process.env.REACT_APP_API_ENDPOINT,
       tree: {name: "", path: "", children: []},
+      path: "",
       photos: [],
       treeOpen: false,
     };
@@ -24,11 +25,15 @@ class App extends React.Component {
         />
         <Tree
           root={this.state.tree}
-          openFolder={(path) => this.fetchPhotos(path)}
+          openFolder={(path) => {
+            this.setState({path: path});
+            this.fetchPhotos(path);
+          }}
           open={this.state.treeOpen}
           closeTree={() => this.setState({treeOpen: false})}
         />
         <Paper
+          path={this.state.path}
           photos={this.state.photos}
           endpoint={this.state.endpoint}
         />

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Paper.css';
 import Photo from './Photo';
-import { Container } from '@material-ui/core';
+import { Container, Typography, Breadcrumbs } from '@material-ui/core';
 
 
 const renderPhotos = (photos, endpoint) => {
@@ -17,11 +17,19 @@ const renderPhotos = (photos, endpoint) => {
   );
 }
 
+const renderBreadcrumbs = (path) => {
+  const ancestors = path.split("/");
+  return ancestors.map(text => <Typography>{text}</Typography>);
+}
+
 export default function Paper(props) {
   if (props.photos.length > 0) {
     return (
       <div className="Paper">
         <Container maxWidth="lg">
+          <Breadcrumbs aria-label="breadcrumb">
+            {renderBreadcrumbs(props.path)}
+          </Breadcrumbs>
           {renderPhotos(props.photos, props.endpoint)}
         </Container>
       </div>
