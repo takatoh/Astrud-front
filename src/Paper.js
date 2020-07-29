@@ -19,7 +19,11 @@ const renderPhotos = (photos, endpoint) => {
 
 const renderBreadcrumbs = (path) => {
   const ancestors = path.split("/");
-  return ancestors.map(text => <Typography key={text}>{text}</Typography>);
+  return (
+    <Breadcrumbs aria-label="breadcrumb">
+      {ancestors.map(text => <Typography key={text}>{text}</Typography>)}
+    </Breadcrumbs>
+  );
 }
 
 export default function Paper(props) {
@@ -27,9 +31,7 @@ export default function Paper(props) {
     return (
       <div className="Paper">
         <Container maxWidth="lg">
-          <Breadcrumbs aria-label="breadcrumb">
-            {renderBreadcrumbs(props.path)}
-          </Breadcrumbs>
+          {renderBreadcrumbs(props.path)}
           {renderPhotos(props.photos, props.endpoint)}
         </Container>
       </div>
