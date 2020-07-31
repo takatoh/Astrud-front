@@ -4,6 +4,25 @@ import Photo from './Photo';
 import { Container, Typography, Breadcrumbs } from '@material-ui/core';
 
 
+const Paper = (props) => {
+  if (props.photos.length > 0) {
+    return (
+      <div className="Paper">
+        <Container maxWidth="lg">
+          {renderBreadcrumbs(props.path)}
+          {renderPhotos(props.photos, props.endpoint)}
+        </Container>
+      </div>
+    );
+  } else {
+    return (
+      <div className="Paper Paper-empty">
+        <p>No photos</p>
+      </div>
+    );
+  }
+}
+
 const renderPhotos = (photos, endpoint) => {
   return (
     photos.map(photo =>
@@ -24,25 +43,6 @@ const renderBreadcrumbs = (path) => {
       {ancestors.map(text => <Typography key={text}>{text}</Typography>)}
     </Breadcrumbs>
   );
-}
-
-const Paper = (props) => {
-  if (props.photos.length > 0) {
-    return (
-      <div className="Paper">
-        <Container maxWidth="lg">
-          {renderBreadcrumbs(props.path)}
-          {renderPhotos(props.photos, props.endpoint)}
-        </Container>
-      </div>
-    );
-  } else {
-    return (
-      <div className="Paper Paper-empty">
-        <p>No photos</p>
-      </div>
-    );
-  }
 }
 
 
