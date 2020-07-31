@@ -42,6 +42,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    document.title = process.env.REACT_APP_SITE_TITLE;
     fetch(`${this.state.endpoint}/tree`)
       .then(response => response.json())
       .then(result => this.setState({tree: result}));
