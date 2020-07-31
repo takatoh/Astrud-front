@@ -2,7 +2,7 @@ import React from 'react';
 import './Photo.css';
 
 
-export default function Photo(props) {
+const Photo = (props) => {
   return (
     <div className="Photo-box">
       <figure>
@@ -18,3 +18,6 @@ export default function Photo(props) {
     </div>
   );
 }
+
+
+export default Photo
