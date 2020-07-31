@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header(props) {
+const Header = (props) => {
   const classes = useStyles();
 
   return (
@@ -43,3 +43,6 @@ export default function Header(props) {
     </AppBar>
   );
 }
+
+
+export default Header
