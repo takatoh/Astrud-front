@@ -8,30 +8,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { makeStyles } from '@material-ui/core/styles';
 
 
-const useStyles = makeStyles({
-  root: {
-    height: 240,
-    flexGrow: 1,
-    maxWidth: 400,
-  },
-  header: {
-    height: 40,
-    display: 'flex',
-    alignItems: 'center',
-  },
-  list: {
-    width: 250,
-  }
-});
-
-const listNodeIds = (root) => {
-  let ids = [root.path];
-  if (root.children.length > 0) {
-    ids = ids.concat(root.children.flatMap((c) => listNodeIds(c)));
-  }
-  return ids;
-}
-
 const Tree = (props) => {
   const classes = useStyles();
 
@@ -67,6 +43,30 @@ const Tree = (props) => {
       </div>
     </Drawer>
   );
+}
+
+const useStyles = makeStyles({
+  root: {
+    height: 240,
+    flexGrow: 1,
+    maxWidth: 400,
+  },
+  header: {
+    height: 40,
+    display: 'flex',
+    alignItems: 'center',
+  },
+  list: {
+    width: 250,
+  }
+});
+
+const listNodeIds = (root) => {
+  let ids = [root.path];
+  if (root.children.length > 0) {
+    ids = ids.concat(root.children.flatMap((c) => listNodeIds(c)));
+  }
+  return ids;
 }
 
 
