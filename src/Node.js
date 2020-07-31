@@ -2,6 +2,14 @@ import React from 'react';
 import { TreeItem } from '@material-ui/lab';
 
 
+const Node = (props) => {
+  return (
+    <TreeItem nodeId={props.path} label={props.name}>
+      {renderChildren(props.children)}
+    </TreeItem>
+  );
+}
+
 const renderChildren = (children) => {
   if (children.length > 0) {
     return (
@@ -12,14 +20,6 @@ const renderChildren = (children) => {
   } else {
     return;
   }
-}
-
-const Node = (props) => {
-  return (
-    <TreeItem nodeId={props.path} label={props.name}>
-      {renderChildren(props.children)}
-    </TreeItem>
-  );
 }
 
 
