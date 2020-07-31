@@ -32,7 +32,7 @@ const listNodeIds = (root) => {
   return ids;
 }
 
-export default function Tree(props) {
+const Tree = (props) => {
   const classes = useStyles();
 
   return (
@@ -68,3 +68,6 @@ export default function Tree(props) {
     </Drawer>
   );
 }
+
+
+export default Tree
