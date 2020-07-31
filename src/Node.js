@@ -14,10 +14,13 @@ const renderChildren = (children) => {
   }
 }
 
-export default function Node(props) {
+const Node = (props) => {
   return (
     <TreeItem nodeId={props.path} label={props.name}>
       {renderChildren(props.children)}
     </TreeItem>
   );
 }
+
+
+export default Node
