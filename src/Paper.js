@@ -26,7 +26,7 @@ const renderBreadcrumbs = (path) => {
   );
 }
 
-export default function Paper(props) {
+const Paper = (props) => {
   if (props.photos.length > 0) {
     return (
       <div className="Paper">
@@ -44,3 +44,6 @@ export default function Paper(props) {
     );
   }
 }
+
+
+export default Paper
