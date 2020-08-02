@@ -13,8 +13,12 @@ const Paper = (props) => {
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
   const [open, setOpen] = useState(false);
+  const [currentPhoto, setCurrentPhoto] = useState("");
 
-  const handleOpen = () => { setOpen(true); };
+  const handleOpen = (photo) => {
+    setCurrentPhoto(photo);
+    setOpen(true);
+  };
   const handleClose = () => { setOpen(false); };
 
   if (props.photos.length > 0) {
@@ -29,7 +33,7 @@ const Paper = (props) => {
             aria-labelledby="photo-modal-title"
             aria-describedby="photo-modal-description"
           >
-            <PhotoModal />
+            <PhotoModal photo={currentPhoto} />
           </Modal>
         </Container>
       </div>
@@ -51,7 +55,7 @@ const renderThumbnails = (photos, endpoint, handleOpen) => {
         thumbnail={`${endpoint}/${photo.thumbnail}`}
         filename={photo.filename}
         key={photo.filename}
-        handleClick={() => handleOpen()}
+        handleClick={(photo) => handleOpen(photo)}
       />
     )
   );

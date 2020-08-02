@@ -18,7 +18,7 @@ const PhotoModal = (props) => {
 
   return (
     <div className={classes.paper}>
-      Modal Photo window
+      {`Modal Photo: ${props.photo}`}
     </div>
   );
 };
