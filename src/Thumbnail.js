@@ -6,14 +6,7 @@ const Thumbnail = (props) => {
   return (
     <div className="Photo-box">
       <figure>
-        <a
-          href={props.photo}
-          target="_blank"
-          rel="noopener noreferrer"
-          key={props.filename}
-        >
-          <img src={props.thumbnail} alt={props.filename} />
-        </a>
+        <img src={props.thumbnail} alt={props.filename} />
       </figure>
     </div>
   );
