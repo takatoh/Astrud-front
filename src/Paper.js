@@ -1,6 +1,6 @@
 import React from 'react';
 import './Paper.css';
-import Photo from './Photo';
+import Thumbnail from './Thumbnail';
 import { Container, Typography, Breadcrumbs } from '@material-ui/core';
 
 
@@ -10,7 +10,7 @@ const Paper = (props) => {
       <div className="Paper">
         <Container maxWidth="lg">
           {renderBreadcrumbs(props.path)}
-          {renderPhotos(props.photos, props.endpoint)}
+          {renderThumbnails(props.photos, props.endpoint)}
         </Container>
       </div>
     );
@@ -23,10 +23,10 @@ const Paper = (props) => {
   }
 }
 
-const renderPhotos = (photos, endpoint) => {
+const renderThumbnails = (photos, endpoint) => {
   return (
     photos.map(photo =>
-      <Photo
+      <Thumbnail
         photo={`${endpoint}/${photo.photo}`}
         thumbnail={`${endpoint}/${photo.thumbnail}`}
         filename={photo.filename}
