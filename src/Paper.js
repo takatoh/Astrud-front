@@ -6,12 +6,9 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Modal from '@material-ui/core/Modal';
-import { makeStyles } from '@material-ui/core/styles';
 
 
 const Paper = (props) => {
-  const classes = useStyles();
-  const [modalStyle] = useState(getModalStyle);
   const [open, setOpen] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState("");
 
@@ -69,24 +66,6 @@ const renderBreadcrumbs = (path) => {
     </Breadcrumbs>
   );
 }
-
-const getModalStyle = () => {
-  return {
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-  };
-};
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    position: 'absolute',
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
-    border: '1px solid #000000',
-    padding: theme.spacing(2),
-  },
-}));
 
 
 export default Paper
