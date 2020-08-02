@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -6,19 +7,21 @@ const PhotoModal = (props) => {
   const classes = makeStyles((theme) => ({
     paper: {
       position: 'absolute',
-      width: 400,
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
       backgroundColor: theme.palette.background.paper,
-      border: '1px solid #000000',
-      padding: theme.spacing(2),
+      padding: theme.spacing(0),
+    },
+    photo: {
+      maxHeight: '95vh',
+      maxWidth: '95vw',
     },
   }))();
 
   return (
     <div className={classes.paper}>
-      {`Modal Photo: ${props.photo}`}
+      <img src={props.photo} className={classes.photo} />
     </div>
   );
 };
