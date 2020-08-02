@@ -1,8 +1,8 @@
 import React from 'react';
-import './Photo.css';
+import './Thumbnail.css';
 
 
-const Photo = (props) => {
+const Thumbnail = (props) => {
   return (
     <div className="Photo-box">
       <figure>
@@ -20,4 +20,4 @@ const Photo = (props) => {
 }
 
 
-export default Photo
+export default Thumbnail
