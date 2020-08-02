@@ -3,20 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 const PhotoModal = (props) => {
-  const classes = makeStyles((theme) => ({
-    paper: {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      backgroundColor: theme.palette.background.paper,
-      padding: theme.spacing(0),
-    },
-    photo: {
-      maxHeight: '95vh',
-      maxWidth: '95vw',
-    },
-  }))();
+  const classes = useStyles();
 
   return (
     <div className={classes.paper}>
@@ -24,6 +11,22 @@ const PhotoModal = (props) => {
     </div>
   );
 };
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: 'transparent',
+  },
+  photo: {
+    maxHeight: '95vh',
+    maxWidth: '95vw',
+    border: 0,
+    outline: 0,
+  },
+}));
 
 
 export default PhotoModal;
