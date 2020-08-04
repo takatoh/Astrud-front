@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 
-const PhotoModal = (props) => {
+const Photo = (props) => {
   const classes = useStyles();
 
   return (
@@ -24,4 +24,4 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default PhotoModal;
+export default Photo;

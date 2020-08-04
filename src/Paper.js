@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Paper.css';
 import Thumbnail from './Thumbnail';
-import PhotoModal from './PhotoModal';
+import Photo from './Photo';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
@@ -30,7 +30,7 @@ const Paper = (props) => {
             aria-labelledby="photo-modal-title"
             aria-describedby="photo-modal-description"
           >
-            <PhotoModal photo={currentPhoto} />
+            <Photo photo={currentPhoto} />
           </Modal>
         </Container>
       </div>
