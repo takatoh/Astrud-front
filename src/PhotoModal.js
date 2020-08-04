@@ -6,21 +6,16 @@ const PhotoModal = (props) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.paper}>
-      <img src={props.photo} className={classes.photo} />
-    </div>
+    <img src={props.photo} className={classes.photo} />
   );
 };
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
+  photo: {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    backgroundColor: 'transparent',
-  },
-  photo: {
     maxHeight: '95vh',
     maxWidth: '95vw',
     border: 0,
