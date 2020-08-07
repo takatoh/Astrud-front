@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import './Paper.css';
 import Thumbnail from './Thumbnail';
 import Photo from './Photo';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Modal from '@material-ui/core/Modal';
+import { makeStyles } from '@material-ui/core/styles';
 
 
 const Paper = (props) => {
   const [open, setOpen] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState("");
+  const classes = useStyles();
 
   const handleOpen = (photo) => {
     setCurrentPhoto(photo);
@@ -20,7 +21,7 @@ const Paper = (props) => {
 
   if (props.photos.length > 0) {
     return (
-      <div className="Paper">
+      <div className={classes.root}>
         <Container maxWidth="lg">
           {renderBreadcrumbs(props.path)}
           {renderThumbnails(props.photos, props.endpoint, handleOpen)}
@@ -37,7 +38,7 @@ const Paper = (props) => {
     );
   } else {
     return (
-      <div className="Paper Paper-empty">
+      <div className={classes.empty}>
         <p>No photos</p>
       </div>
     );
@@ -66,6 +67,21 @@ const renderBreadcrumbs = (path) => {
     </Breadcrumbs>
   );
 }
+
+const useStyles = makeStyles({
+  root: {
+    marginTop: 10,
+  },
+  empty: {
+    marginTop: 10,
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translateY(-50%) translateX(-50%)',
+    fontSize: 60,
+    color: '#bbbbbb',
+  },
+});
 
 
 export default Paper
