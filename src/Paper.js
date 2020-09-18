@@ -70,10 +70,10 @@ const renderBreadcrumbs = (path) => {
 
 const useStyles = makeStyles({
   root: {
-    marginTop: 10,
+    marginTop: 80,
   },
   empty: {
-    marginTop: 10,
+    marginTop: 80,
     position: 'absolute',
     top: '50%',
     left: '50%',
