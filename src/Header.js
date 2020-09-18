@@ -8,7 +8,7 @@ const Header = (props) => {
   const classes = useStyles();
 
   return (
-    <AppBar position="static" className={classes.bar}>
+    <AppBar position="fixed" className={classes.bar}>
       <Toolbar>
         <IconButton
           edge="start"
