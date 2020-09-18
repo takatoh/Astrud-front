@@ -6,8 +6,12 @@ const Photo = (props) => {
   const classes = useStyles();
 
   return (
-    <img src={props.photo} className={classes.photo} />
+    <img src={props.photo} className={classes.photo} alt={filename(props.photo)} />
   );
+};
+
+const filename = (photo) => {
+  return photo.split("/").slice(-1)[0];
 };
 
 const useStyles = makeStyles((theme) => ({
