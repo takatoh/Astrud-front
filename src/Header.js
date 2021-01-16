@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import { NavigateBefore, NavigateNext } from '@material-ui/icons';
 
 
 const Header = (props) => {
@@ -22,6 +23,22 @@ const Header = (props) => {
         <Typography variant="h5" className={classes.title}>
           {props.title}
         </Typography>
+        <IconButton
+          edge="start"
+          className={classes.navigateButton}
+          color="inherit"
+          aria-label="before"
+        >
+          <NavigateBefore />
+        </IconButton>
+        <IconButton
+          edge="start"
+          className={classes.navigateButton}
+          color="inherit"
+          aria-label="next"
+        >
+          <NavigateNext />
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
@@ -41,6 +58,9 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
     textAlign: "center",
+  },
+  navigateButton: {
+    marginRight: theme.spacing(2),
   },
 }));
 
