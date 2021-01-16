@@ -10,6 +10,7 @@ class App extends React.Component {
     this.state = {
       endpoint: process.env.REACT_APP_API_ENDPOINT,
       tree: {name: "", path: "", children: []},
+      pathList: [],
       path: "",
       photos: [],
       treeOpen: false,
@@ -45,7 +46,12 @@ class App extends React.Component {
     document.title = process.env.REACT_APP_SITE_TITLE;
     fetch(`${this.state.endpoint}/tree`)
       .then(response => response.json())
-      .then(result => this.setState({tree: result}));
+      .then(result => {
+        this.setState({
+          tree: result,
+          pathList: listPaths(result),
+        })
+      });
   }
 
   fetchPhotos(path) {
@@ -53,6 +59,11 @@ class App extends React.Component {
       .then(response => response.json())
       .then(result => this.setState({photos: result.photos}));
   }
+}
+
+
+const listPaths = (tree) => {
+  return [tree.path, ...(tree.children.map((c) => listPaths(c)).flat())];
 }
 
 
