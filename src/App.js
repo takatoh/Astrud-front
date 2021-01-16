@@ -89,7 +89,11 @@ class App extends React.Component {
 
 
 const listPaths = (tree) => {
-  return [tree.path, ...(tree.children.map((c) => listPaths(c)).flat())];
+  const paths = tree.children.map((c) => listPaths(c)).flat();
+  if (tree.hasPhotos) {
+    paths.unshift(tree.path);
+  }
+  return paths;
 }
 
 
