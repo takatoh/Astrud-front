@@ -23,6 +23,11 @@ class App extends React.Component {
         <Header
           title={process.env.REACT_APP_SITE_TITLE}
           openTree={() => this.setState({treeOpen: true})}
+          openNextFolder={() => {
+            const next = this.nextFolder();
+            this.setState({path: next});
+            this.fetchPhotos(next);
+          }}
         />
         <Tree
           root={this.state.tree}
@@ -58,6 +63,15 @@ class App extends React.Component {
     fetch(`${this.state.endpoint}/dir/${path}`)
       .then(response => response.json())
       .then(result => this.setState({photos: result.photos}));
+  }
+
+  nextFolder() {
+    const idx = this.state.pathList.indexOf(this.state.path);
+    if (idx >= this.state.pathList.length - 1) {
+      return this.state.pathList[idx];
+    } else {
+      return this.state.pathList[idx + 1];
+    }
   }
 }
 

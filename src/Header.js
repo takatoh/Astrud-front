@@ -36,6 +36,7 @@ const Header = (props) => {
           className={classes.navigateButton}
           color="inherit"
           aria-label="next"
+          onClick={props.openNextFolder}
         >
           <NavigateNext />
         </IconButton>
