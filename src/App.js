@@ -24,7 +24,7 @@ class App extends React.Component {
           title={process.env.REACT_APP_SITE_TITLE}
           openTree={() => this.setState({treeOpen: true})}
           openNextFolder={() => {
-            const next = this.nextFolder();
+            const next = this.nextPath();
             this.setState({path: next});
             this.fetchPhotos(next);
           }}
@@ -65,7 +65,7 @@ class App extends React.Component {
       .then(result => this.setState({photos: result.photos}));
   }
 
-  nextFolder() {
+  nextPath() {
     const idx = this.state.pathList.indexOf(this.state.path);
     if (idx >= this.state.pathList.length - 1) {
       return this.state.pathList[idx];
