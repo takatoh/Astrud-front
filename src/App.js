@@ -66,12 +66,11 @@ class App extends React.Component {
   }
 
   nextPath() {
-    const idx = this.state.pathList.indexOf(this.state.path);
-    if (idx >= this.state.pathList.length - 1) {
-      return this.state.pathList[idx];
-    } else {
-      return this.state.pathList[idx + 1];
+    let idx = this.state.pathList.indexOf(this.state.path);
+    if (idx < this.state.pathList.length - 1) {
+      idx += 1;
     }
+    return this.state.pathList[idx];
   }
 }
 
