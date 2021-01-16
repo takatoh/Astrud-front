@@ -28,6 +28,11 @@ class App extends React.Component {
             this.setState({path: next});
             this.fetchPhotos(next);
           }}
+          openPrevFolder={() => {
+            const prev = this.prevPath();
+            this.setState({path: prev});
+            this.fetchPhotos(prev);
+          }}
         />
         <Tree
           root={this.state.tree}
@@ -63,6 +68,14 @@ class App extends React.Component {
     fetch(`${this.state.endpoint}/dir/${path}`)
       .then(response => response.json())
       .then(result => this.setState({photos: result.photos}));
+  }
+
+  prevPath() {
+    let idx = this.state.pathList.indexOf(this.state.path);
+    if (idx > 0) {
+      idx -= 1;
+    }
+    return this.state.pathList[idx];
   }
 
   nextPath() {

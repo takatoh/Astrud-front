@@ -28,6 +28,7 @@ const Header = (props) => {
           className={classes.navigateButton}
           color="inherit"
           aria-label="before"
+          onClick={props.openPrevFolder}
         >
           <NavigateBefore />
         </IconButton>
