@@ -13,7 +13,7 @@ const Header = (props) => {
       <Toolbar>
         <IconButton
           edge="start"
-          className={classes.nemuButton}
+          className={classes.menuButton}
           color="inherit"
           aria-label="menu"
           onClick={props.openTree}
