@@ -14,30 +14,30 @@ const Tree = (props) => {
   return (
     <Drawer
       anchor="left"
-      open={props.open}
-      onClose={(event) => props.closeTree()}
+      open={ props.open }
+      onClose={ event => props.closeTree() }
     >
       <div
-        className={classes.list}
+        className={ classes.list }
         role="presentation"
-        onClick={(event) => props.closeTree()}
+        onClick={ event => props.closeTree() }
       >
-        <div className={classes.header}>
+        <div className={ classes.header } >
           <FolderOpenIcon />
           <Typography>Folders</Typography>
         </div>
         <Divider />
         <TreeView
-          className={classes.root}
-          defaultCollapseIcon={<ExpandMoreIcon />}
-          defaultExpandIcon={<ChevronRightIcon />}
-          expanded={listNodeIds(props.root)}
-          onNodeSelect={(e, v) => props.openFolder(v)}
+          className={ classes.root }
+          defaultCollapseIcon={ <ExpandMoreIcon /> }
+          defaultExpandIcon={ <ChevronRightIcon /> }
+          expanded={ listNodeIds(props.root) }
+          onNodeSelect={ (e, v) => props.openFolder(v) }
         >
           <Node
-            name={props.root.name}
-            path={props.root.path}
-            children={props.root.children}
+            name={ props.root.name }
+            path={ props.root.path }
+            children={ props.root.children }
           />
         </TreeView>
       </div>
@@ -45,7 +45,7 @@ const Tree = (props) => {
   );
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     height: 240,
     flexGrow: 1,
@@ -59,12 +59,12 @@ const useStyles = makeStyles({
   list: {
     width: 250,
   }
-});
+}));
 
 const listNodeIds = (root) => {
   let ids = [root.path];
   if (root.children.length > 0) {
-    ids = ids.concat(root.children.flatMap((c) => listNodeIds(c)));
+    ids = ids.concat(root.children.flatMap(c => listNodeIds(c)));
   }
   return ids;
 }
