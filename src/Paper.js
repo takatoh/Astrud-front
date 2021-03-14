@@ -17,28 +17,30 @@ const Paper = (props) => {
     setCurrentPhoto(photo);
     setOpen(true);
   };
-  const handleClose = () => { setOpen(false); };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   if (props.photos.length > 0) {
     return (
-      <div className={classes.root}>
+      <div className={ classes.root }>
         <Container maxWidth="lg">
-          {renderBreadcrumbs(props.path)}
-          {renderThumbnails(props.photos, props.endpoint, handleOpen)}
+          { renderBreadcrumbs(props.path) }
+          { renderThumbnails(props.photos, props.endpoint, handleOpen) }
           <Modal
-            open={open}
-            onClose={handleClose}
+            open={ open }
+            onClose={ handleClose }
             aria-labelledby="photo-modal-title"
             aria-describedby="photo-modal-description"
           >
-            <Photo photo={currentPhoto} close={handleClose} />
+            <Photo photo={ currentPhoto } close={ handleClose } />
           </Modal>
         </Container>
       </div>
     );
   } else {
     return (
-      <div className={classes.empty}>
+      <div className={ classes.empty }>
         <p>No photos</p>
       </div>
     );
@@ -49,11 +51,11 @@ const renderThumbnails = (photos, endpoint, handleOpen) => {
   return (
     photos.map(photo =>
       <Thumbnail
-        photo={`${endpoint}/${photo.photo}`}
-        thumbnail={`${endpoint}/${photo.thumbnail}`}
-        filename={photo.filename}
-        key={photo.filename}
-        handleClick={(photo) => handleOpen(photo)}
+        photo={ `${endpoint}/${photo.photo}` }
+        thumbnail={ `${endpoint}/${photo.thumbnail}` }
+        filename={ photo.filename }
+        key={ photo.filename }
+        handleClick={ photo => handleOpen(photo) }
       />
     )
   );
@@ -63,12 +65,12 @@ const renderBreadcrumbs = (path) => {
   const ancestors = path.split("/");
   return (
     <Breadcrumbs aria-label="breadcrumb">
-      {ancestors.map(text => <Typography key={text}>{text}</Typography>)}
+      { ancestors.map(text => <Typography key={ text } >{ text }</Typography>) }
     </Breadcrumbs>
   );
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     marginTop: 80,
   },
@@ -81,7 +83,7 @@ const useStyles = makeStyles({
     fontSize: 60,
     color: '#bbbbbb',
   },
-});
+}));
 
 
 export default Paper

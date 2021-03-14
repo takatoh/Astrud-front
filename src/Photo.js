@@ -7,10 +7,10 @@ const Photo = (props) => {
 
   return (
     <img
-      src={props.photo}
-      className={classes.photo}
-      alt={filename(props.photo)}
-      onClick={() => {props.close()}}
+      src={ props.photo }
+      className={ classes.photo }
+      alt={ filename(props.photo) }
+      onClick={ () => props.close() }
     />
   );
 };
@@ -19,7 +19,7 @@ const filename = (photo) => {
   return photo.split("/").slice(-1)[0];
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   photo: {
     position: 'absolute',
     top: '50%',
