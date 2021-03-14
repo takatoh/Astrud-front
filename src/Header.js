@@ -9,35 +9,35 @@ const Header = (props) => {
   const classes = useStyles();
 
   return (
-    <AppBar position="fixed" className={classes.bar}>
+    <AppBar position="fixed" className={ classes.bar } >
       <Toolbar>
         <IconButton
           edge="start"
-          className={classes.menuButton}
+          className={ classes.menuButton }
           color="inherit"
           aria-label="menu"
-          onClick={props.openTree}
+          onClick={ props.openTree }
         >
           <Folder />
         </IconButton>
-        <Typography variant="h5" className={classes.title}>
-          {props.title}
+        <Typography variant="h5" className={ classes.title } >
+          { props.title }
         </Typography>
         <IconButton
           edge="start"
-          className={classes.navigateButton}
+          className={ classes.navigateButton }
           color="inherit"
-          aria-label="before"
-          onClick={props.openPrevFolder}
+          aria-label="prev"
+          onClick={ props.openPrevFolder }
         >
           <NavigateBefore />
         </IconButton>
         <IconButton
           edge="start"
-          className={classes.navigateButton}
+          className={ classes.navigateButton }
           color="inherit"
           aria-label="next"
-          onClick={props.openNextFolder}
+          onClick={ props.openNextFolder }
         >
           <NavigateNext />
         </IconButton>
@@ -46,7 +46,7 @@ const Header = (props) => {
   );
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
