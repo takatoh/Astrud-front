@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import { Folder } from '@material-ui/icons';
 import { NavigateBefore, NavigateNext } from '@material-ui/icons';
 
 
@@ -18,7 +18,7 @@ const Header = (props) => {
           aria-label="menu"
           onClick={props.openTree}
         >
-          <MenuIcon />
+          <Folder />
         </IconButton>
         <Typography variant="h5" className={classes.title}>
           {props.title}
