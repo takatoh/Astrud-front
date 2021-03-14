@@ -31,7 +31,7 @@ const Paper = (props) => {
             aria-labelledby="photo-modal-title"
             aria-describedby="photo-modal-description"
           >
-            <Photo photo={currentPhoto} />
+            <Photo photo={currentPhoto} close={handleClose} />
           </Modal>
         </Container>
       </div>
