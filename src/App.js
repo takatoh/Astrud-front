@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       endpoint: process.env.REACT_APP_API_ENDPOINT,
-      tree: {name: "", path: "", children: []},
+      tree: { name: "", path: "", children: [] },
       pathList: [],
       path: "",
       photos: [],
@@ -19,34 +19,34 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" >
         <Header
-          title={process.env.REACT_APP_SITE_TITLE}
-          openTree={() => this.setState({treeOpen: true})}
-          openNextFolder={() => {
+          title={ process.env.REACT_APP_SITE_TITLE }
+          openTree={ () => this.setState({ treeOpen: true }) }
+          openNextFolder={ () => {
             const next = this.nextPath();
-            this.setState({path: next});
+            this.setState({ path: next });
             this.fetchPhotos(next);
-          }}
-          openPrevFolder={() => {
+          } }
+          openPrevFolder={ () => {
             const prev = this.prevPath();
-            this.setState({path: prev});
+            this.setState({ path: prev });
             this.fetchPhotos(prev);
-          }}
+          } }
         />
         <Tree
-          root={this.state.tree}
-          openFolder={(path) => {
-            this.setState({path: path});
+          root={ this.state.tree }
+          openFolder={ path => {
+            this.setState({ path: path });
             this.fetchPhotos(path);
-          }}
-          open={this.state.treeOpen}
-          closeTree={() => this.setState({treeOpen: false})}
+          } }
+          open={ this.state.treeOpen }
+          closeTree={ () => this.setState({ treeOpen: false }) }
         />
         <Paper
-          path={this.state.path}
-          photos={this.state.photos}
-          endpoint={this.state.endpoint}
+          path={ this.state.path }
+          photos={ this.state.photos }
+          endpoint={ this.state.endpoint }
         />
       </div>
     );
@@ -89,7 +89,7 @@ class App extends React.Component {
 
 
 const listPaths = (tree) => {
-  const paths = tree.children.map((c) => listPaths(c)).flat();
+  const paths = tree.children.map(c => listPaths(c)).flat();
   if (tree.hasPhotos) {
     paths.unshift(tree.path);
   }
