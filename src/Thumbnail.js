@@ -6,20 +6,20 @@ const Thumbnail = (props) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.box}>
-      <figure className={classes.figure}>
+    <div className={ classes.box } >
+      <figure className={ classes.figure } >
         <img
-          src={props.thumbnail}
-          alt={props.filename}
-          onClick={() => props.handleClick(props.photo)}
-          className={classes.img}
+          src={ props.thumbnail }
+          alt={ props.filename }
+          onClick={ () => props.handleClick(props.photo) }
+          className={ classes.img }
         />
       </figure>
     </div>
   );
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   box: {
     float: 'left',
     textAlign: 'center',
@@ -33,7 +33,7 @@ const useStyles = makeStyles({
   img: {
     border: 'solid 1px #dddddd',
   }
-});
+}));
 
 
 export default Thumbnail
