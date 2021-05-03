@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
   },
   list: {
-    width: 250,
+    width: 300,
   }
 }));
 
