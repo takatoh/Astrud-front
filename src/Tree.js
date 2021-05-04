@@ -3,8 +3,8 @@ import Node from './Node';
 import { Drawer, Divider, Typography } from '@material-ui/core';
 import FolderOpenIcon from '@material-ui/icons/FolderOpen';
 import { TreeView } from '@material-ui/lab';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -29,8 +29,8 @@ const Tree = (props) => {
         <Divider />
         <TreeView
           className={ classes.root }
-          defaultCollapseIcon={ <ExpandMoreIcon /> }
-          defaultExpandIcon={ <ChevronRightIcon /> }
+          defaultCollapseIcon={ <ArrowDropDownIcon /> }
+          defaultExpandIcon={ <ArrowRightIcon /> }
           expanded={ listNodeIds(props.root) }
           onNodeSelect={ (e, v) => props.openFolder(v) }
         >
