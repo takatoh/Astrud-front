@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Thumbnail from './Thumbnail';
+import ThumbnailMobile from './ThumbnailMobile';
+import MediaQuery from 'react-responsive';
 import Photo from './Photo';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
@@ -50,13 +52,26 @@ const Paper = (props) => {
 const renderThumbnails = (photos, endpoint, handleOpen) => {
   return (
     photos.map(photo =>
-      <Thumbnail
-        photo={ `${endpoint}/${photo.photo}` }
-        thumbnail={ `${endpoint}/${photo.thumbnail}` }
-        filename={ photo.filename }
-        key={ photo.filename }
-        handleClick={ photo => handleOpen(photo) }
-      />
+      <div>
+        <MediaQuery query="(max-width: 767px)">
+          <ThumbnailMobile
+            photo={ `${endpoint}/${photo.photo}` }
+            thumbnail={ `${endpoint}/${photo.thumbnail}` }
+            filename={ photo.filename }
+            key={ photo.filename }
+            handleClick={ photo => handleOpen(photo) }
+          />
+        </MediaQuery>
+        <MediaQuery query="(min-width: 768px)">
+          <Thumbnail
+            photo={ `${endpoint}/${photo.photo}` }
+            thumbnail={ `${endpoint}/${photo.thumbnail}` }
+            filename={ photo.filename }
+            key={ photo.filename }
+            handleClick={ photo => handleOpen(photo) }
+          />
+        </MediaQuery>
+      </div>
     )
   );
 }
