@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import IconButton from '@material-ui/core/IconButton';
 import Modal from '@material-ui/core/Modal';
-import { ArrowBackIos, ArrowForwardIos, DonutLarge } from '@material-ui/icons';
+import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -23,6 +23,20 @@ const Paper = (props) => {
   };
   const handleClose = () => {
     setOpen(false);
+  };
+  const openPrevPhoto = () => {
+    const curr =  currentPhoto.replace(`${props.endpoint}/`, '');
+    const idx = props.photos.findIndex((p) => p.photo == curr);
+    if (0 < idx) {
+      setCurrentPhoto(`${props.endpoint}/${props.photos[idx - 1].photo}`);
+    }
+  };
+  const openNextPhoto = () => {
+    const curr =  currentPhoto.replace(`${props.endpoint}/`, '');
+    const idx = props.photos.findIndex((p) => p.photo == curr);
+    if (idx < props.photos.length - 1) {
+      setCurrentPhoto(`${props.endpoint}/${props.photos[idx + 1].photo}`);
+    }
   };
 
   if (props.photos.length > 0) {
@@ -42,6 +56,7 @@ const Paper = (props) => {
                 edge="start"
                 className={ classes.navigatePrev }
                 aria-label="prev"
+                onClick={ openPrevPhoto }
               >
                 <ArrowBackIos
                   fontSize="large"
@@ -52,6 +67,7 @@ const Paper = (props) => {
                 edge="start"
                 className={ classes.navigateNext }
                 aria-label="next"
+                onClick={ openNextPhoto }
               >
                 <ArrowForwardIos
                   fontSize="large"
