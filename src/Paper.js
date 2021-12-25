@@ -6,7 +6,9 @@ import Photo from './Photo';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import IconButton from '@material-ui/core/IconButton';
 import Modal from '@material-ui/core/Modal';
+import { ArrowBackIos, ArrowForwardIos, DonutLarge } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -35,7 +37,27 @@ const Paper = (props) => {
             aria-labelledby="photo-modal-title"
             aria-describedby="photo-modal-description"
           >
-            <Photo photo={ currentPhoto } close={ handleClose } />
+            <div>
+              <IconButton
+                edge="start"
+                className={ classes.navigatePrev }
+                aria-label="prev"
+              >
+                <ArrowBackIos
+                  fontSize="large"
+                />
+              </IconButton>
+              <Photo photo={ currentPhoto } close={ handleClose } />
+              <IconButton
+                edge="start"
+                className={ classes.navigateNext }
+                aria-label="next"
+              >
+                <ArrowForwardIos
+                  fontSize="large"
+                />
+              </IconButton>
+            </div>
           </Modal>
         </Container>
       </div>
@@ -97,6 +119,24 @@ const useStyles = makeStyles(theme => ({
     transform: 'translateY(-50%) translateX(-50%)',
     fontSize: 60,
     color: '#bbbbbb',
+  },
+  navigatePrev: {
+    height: '100px',
+    width: '100px',
+    position: 'absolute',
+    top: '50%',
+    left: '0%',
+    transform: 'translateY(-50%)',
+    color: '#ffffff',
+  },
+  navigateNext: {
+    height: '100px',
+    width: '100px',
+    position: 'absolute',
+    top: '50%',
+    right: '0%',
+    transform: 'translateY(-50%)',
+    color: '#ffffff',
   },
 }));
 
