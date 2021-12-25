@@ -36,7 +36,7 @@ const PhotoPlate = (props) => {
         </IconButton>
       </div>
     </Modal>
-    );
+  );
 }
 
 const useStyles = makeStyles(theme => ({
