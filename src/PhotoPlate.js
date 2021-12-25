@@ -19,7 +19,7 @@ const PhotoPlate = (props) => {
       <div>
         <IconButton
           edge="start"
-          className={ classes.navigatePrev }
+          className={ [classes.navigateButton, classes.navigatePrev].join(' ') }
           aria-label="prev"
           onClick={ props.openPrevPhoto }
         >
@@ -28,7 +28,7 @@ const PhotoPlate = (props) => {
         <Photo photo={ props.photo } close={ props.handleClose } />
         <IconButton
           edge="start"
-          className={ classes.navigateNext }
+          className={ [classes.navigateButton, classes.navigateNext].join(' ') }
           aria-label="next"
           onClick={ props.openNextPhoto }
         >
@@ -40,23 +40,19 @@ const PhotoPlate = (props) => {
 }
 
 const useStyles = makeStyles(theme => ({
-  navigatePrev: {
+  navigateButton: {
     height: '100px',
     width: '100px',
     position: 'absolute',
     top: '50%',
-    left: '0%',
     transform: 'translateY(-50%)',
     color: '#ffffff',
   },
+  navigatePrev: {
+    left: '0%',
+  },
   navigateNext: {
-    height: '100px',
-    width: '100px',
-    position: 'absolute',
-    top: '50%',
     right: '0%',
-    transform: 'translateY(-50%)',
-    color: '#ffffff',
   },
 }));
 
