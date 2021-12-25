@@ -10,7 +10,7 @@ const Photo = (props) => {
       src={ props.photo }
       className={ classes.photo }
       alt={ filename(props.photo) }
-      onClick={ () => props.close() }
+      onClick={ props.close }
     />
   );
 };
