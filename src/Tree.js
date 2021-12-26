@@ -1,8 +1,8 @@
 import React from 'react';
 import Node from './Node';
 import { Drawer, Divider, Typography } from '@material-ui/core';
-import FolderOpenIcon from '@material-ui/icons/FolderOpen';
 import { TreeView } from '@material-ui/lab';
+import FolderOpenIcon from '@material-ui/icons/FolderOpen';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import { makeStyles } from '@material-ui/core/styles';

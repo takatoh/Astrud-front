@@ -1,8 +1,7 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
-import { Folder } from '@material-ui/icons';
-import { NavigateBefore, NavigateNext } from '@material-ui/icons';
+import { Folder, NavigateBefore, NavigateNext } from '@material-ui/icons';
+import { makeStyles } from '@material-ui/core/styles';
 
 
 const Header = (props) => {

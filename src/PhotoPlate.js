@@ -1,7 +1,6 @@
 import React from 'react';
 import Photo from './Photo';
-import Modal from '@material-ui/core/Modal';
-import IconButton from '@material-ui/core/IconButton';
+import { Modal, IconButton } from '@material-ui/core';
 import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 

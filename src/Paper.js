@@ -3,9 +3,7 @@ import Thumbnail from './Thumbnail';
 import ThumbnailMobile from './ThumbnailMobile';
 import PhotoPlate from './PhotoPlate';
 import MediaQuery from 'react-responsive';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import { Container, Typography, Breadcrumbs } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 
