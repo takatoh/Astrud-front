@@ -16,6 +16,7 @@ const PhotoPlate = (props) => {
       aria-describedby="photo-modal-description"
     >
       <div>
+        <Photo photo={ props.photo } close={ props.handleClose } />
         <IconButton
           edge="start"
           className={ [classes.navigateButton, classes.navigatePrev].join(' ') }
@@ -24,7 +25,6 @@ const PhotoPlate = (props) => {
         >
           <ArrowBackIos fontSize="large" />
         </IconButton>
-        <Photo photo={ props.photo } close={ props.handleClose } />
         <IconButton
           edge="start"
           className={ [classes.navigateButton, classes.navigateNext].join(' ') }
